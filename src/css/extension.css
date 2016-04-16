@@ -1,0 +1,58 @@
+/* Bitbucket defaults */
+.refract-container .deletion .source {
+  background-color: #fee8e9;
+}
+.refract-container .deletion .source del {
+  background-color: #ffb6ba;
+}
+.refract-container .addition .source {
+  background-color: #ddffdd;
+}
+.refract-container .addition .source ins {
+  background-color: #97f295;
+}
+.refract-container .addition .source ins,
+.refract-container .deletion .source del {
+  display: inline-block;
+  margin-top: -1px;
+  text-decoration: none;
+}
+.refract-container .conflict .source,
+.refract-container .conflict .source ins,
+.refract-container .conflict .source del {
+  background-color: #ffffdf;
+}
+.refract-container .conflict-marker .source {
+  background-color: #fff4c9;
+}
+.diffract .bb-patch-unified .source,
+.diffract .comment-content .bb-udiff .source {
+  margin: 0;
+}
+
+/* Extension CSS */
+.bb_menu {
+  margin-top: 10px;
+}
+.bb_menu_item {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+
+.bb_source {
+  margin: 10px 0 0;
+}
+.bb_source .leading-whitespace {
+  display: inline-block;
+}
+.bb_source .hard-tab {
+  padding-right: 29px;
+}
+.bb_source .hard-tab + .hard-tab {
+  padding-right: 36px;
+}
+.bb_source pre {
+  margin: 0;
+  display: inline-block;
+}
