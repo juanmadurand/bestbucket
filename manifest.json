@@ -1,7 +1,7 @@
 {
-  "name": "bestbucket",
+  "name": "BestBucket",
   "description": "Boost your Bitbucket Pull request diff experience!",
-  "version": "0.0.1",
+  "version": "0.1.1",
 
   "icons": {
     "16": "assets/icon_16x16.png",

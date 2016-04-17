@@ -37,9 +37,11 @@
 .bb_menu_item {
   display: inline-block;
   margin-right: 20px;
-  outline: 0;
   font-size: 14px;
   color: #222;
+}
+.bb_menu .bb_menu_item:focus {
+  outline: 0;
 }
 .bb_menu_item span {
   padding-right: 6px;
@@ -94,7 +96,7 @@
 
 
 /* Toggle File Panels */
-.bb-udiff .heading{
+.bb-udiff .heading .primary{
   cursor:pointer
 }
 .bb-udiff.collapsed .diff-content-container,
@@ -111,4 +113,8 @@
 .bb-udiff.collapsed .heading {
   border: 1px solid #ccc;
   border-radius: 5px;
+}
+#togglePanels .aui-icon:before{
+  font-size: 22px;
+  margin-top: -9px;
 }

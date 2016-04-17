@@ -22,8 +22,8 @@ class ExtensionClient {
     )
     .append(
       $('<button id="togglePanels" class="bb_menu_item aui-button" />')
-        .text('collapse all panels')
-        // .prepend('<span class="aui-icon aui-icon-small aui-iconfont-unwatch" />')
+        .text('Panels')
+        .prepend('<span class="aui-icon aui-icon-small aui-iconfont-expanded" />')
         .click(toggleAllPanels)
     );
 
@@ -109,11 +109,11 @@ class ExtensionClient {
       onClickDisplay: true
     }, function(options) {
       if (options.onClickDisplay) {
-      $('.diff-container .heading').click(function() {
+      $('.diff-container .heading .primary').click(function() {
         $(this).parents('.bb-udiff').toggleClass('collapsed');
       });
       } else {
-        $('.diff-container .heading').unbind('click');
+        $('.diff-container .heading .primary').unbind('click');
       }
     });
   }
@@ -126,6 +126,7 @@ class ExtensionClient {
     } else {
       $('.bb-udiff').removeClass('collapsed');
     }
+    $(this).find('.aui-icon').toggleClass('aui-iconfont-collapsed aui-iconfont-expanded');
   }
 }
 
