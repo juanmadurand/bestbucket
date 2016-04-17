@@ -37,7 +37,14 @@
 .bb_menu_item {
   display: inline-block;
   margin-right: 20px;
+  outline: 0;
+  font-size: 14px;
+  color: #222;
 }
+.bb_menu_item span {
+  padding-right: 6px;
+}
+#toggleWhitespace.active span:before{content: "\f1b4";}
 
 
 .bb_source {
@@ -45,6 +52,7 @@
 }
 .bb_source .leading-whitespace {
   display: inline-block;
+  color: #888;
 }
 .bb_source .hard-tab {
   padding-right: 29px;
@@ -82,4 +90,25 @@
   background: rgb(255,217,118);
   left: 0;
   padding-right: 1px;
+}
+
+
+/* Toggle File Panels */
+.bb-udiff .heading{
+  cursor:pointer
+}
+.bb-udiff.collapsed .diff-content-container,
+.bb-udiff.collapsed .refract-container{
+  display:none
+}
+
+.bb-udiff.collapsed{
+  min-height: auto;
+}
+.bb-udiff.collapsed+.bb-udiff {
+  margin-top: 10px;
+}
+.bb-udiff.collapsed .heading {
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }

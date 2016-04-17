@@ -9,7 +9,13 @@ class ExtensionBackground {
   events() {
     chrome.browserAction.onClicked.addListener((tab) => {
       if (tab.url.indexOf('https://bitbucket.org/') != -1) {
-        showBadge();
+        chrome.tabs.executeScript(null,{code:"document.getElementById('repo-content').style.backgroundColor='red'"});
+        chrome.browserAction.onClicked.addListener(function(activeTab) {
+          chrome.tabs.executeScript(null, {file: "client.js"});
+        }, function () {
+          showBadge();
+        });
+
       }
     });
   }

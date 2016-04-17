@@ -7,44 +7,25 @@ class ExtensionClient {
     this.findMixedSpacesTabs = this.findMixedSpacesTabs.bind(this);
     this.renderMenu();
     this.findMixedSpacesTabs();
-
-  }
-
-  findMixedSpacesTabs() {
-    if (!$('.source').length) {
-      setTimeout(() => this.findMixedSpacesTabs(), 1000);
-      return;
-    }
-    console.log('working...');
-    $('.source').each(function (elem) {
-      console.log('this', this);
-      const text = $(this).text();
-      const regex = /\ \t|\t\ /g;
-      const match = regex.exec(text);
-      console.log('text', text);
-      console.log('match', match);
-
-      if (match) {
-        const parent = $(this).parents('.udiff-line');
-        const warning = $('<div />')
-        .addClass('bb_warning')
-        .append('<i class="aui-icon aui-icon-small aui-iconfont-warning" />')
-        .attr('title', 'This line has mixed spaces and tabs');
-
-        parent.append(warning);
-        parent.find('.gutter').addClass('warning');
-      }
-    });
+    this.initTogglePanel();
   }
 
   renderMenu() {
     const toggleInvisibleCharacters = this.toggleInvisibleCharacters;
+    const toggleAllPanels = this.toggleAllPanels;
     const menu = $('<div class="bb_menu" />')
     .append(
-      $('<button class="bb_menu_item aui-button" />')
-        .text('Toggle invisible characters')
+      $('<button id="toggleWhitespace" class="bb_menu_item aui-button" />')
+        .text('whitespaces and tabs')
+        .prepend('<span class="aui-icon aui-icon-small aui-iconfont-unwatch" />')
         .click(toggleInvisibleCharacters)
     )
+    .append(
+      $('<button id="togglePanels" class="bb_menu_item aui-button" />')
+        .text('collapse all panels')
+        // .prepend('<span class="aui-icon aui-icon-small aui-iconfont-unwatch" />')
+        .click(toggleAllPanels)
+    );
 
     const bbContainer = $('<section class="bb_container main" />')
       .append('<h1>BestBucket Extension</h1>')
@@ -57,6 +38,7 @@ class ExtensionClient {
     if ($('.bb_source:visible').length) {
       return;
     }
+    $('#toggleWhitespace').addClass('active');
     $(".source").each(function (elem) {
       const text = $(this).html();
       const regex = /([\+|\-])?(\s*)(.+)/g;
@@ -66,8 +48,7 @@ class ExtensionClient {
         let matchedLine, diffSign = null, matchedWhitespaces, matchedCode;
         if (match.length === 4) {
           [matchedLine, diffSign, matchedWhitespaces, matchedCode] = match;
-        }
-        else {
+        } else {
           [matchedLine, matchedWhitespaces, matchedCode] = match;
         }
         var newElem = $('<div class="source bb_source"/>');
@@ -88,13 +69,65 @@ class ExtensionClient {
 
   toggleInvisibleCharacters() {
     if (!$('.bb_source').length) {
-      console.log('Creating invisible-whitespaces');
       return this.createInvisibleWhitespaces();
     }
-    const showWhitespace = $('.bb_source:hidden').length;
+    const showWhitespace = !$('.bb_source:visible').length;
     $('.old-one').toggle(!showWhitespace);
     $('.bb_source').toggle(showWhitespace);
+    if (showWhitespace) {
+      $('#toggleWhitespace').addClass('active');
+    } else {
+      $('#toggleWhitespace').removeClass('active');
+    }
+  }
+
+  findMixedSpacesTabs() {
+    if (!$('.source').length) {
+      setTimeout(() => this.findMixedSpacesTabs(), 1000);
+      return;
+    }
+    $('.source').each(function (elem) {
+      const text = $(this).text();
+      const regex = /\ \t|\t\ /g;
+      const match = regex.exec(text);
+
+      if (match) {
+        const parent = $(this).parents('.udiff-line');
+        const warning = $('<div />')
+        .addClass('bb_warning')
+        .append('<i class="aui-icon aui-icon-small aui-iconfont-warning" />')
+        .attr('title', 'This line has mixed spaces and tabs');
+
+        parent.append(warning);
+        parent.find('.gutter').addClass('warning');
+      }
+    });
+  }
+
+  initTogglePanel() {
+    chrome.storage.sync.get({
+      onClickDisplay: true
+    }, function(options) {
+      if (options.onClickDisplay) {
+      $('.diff-container .heading').click(function() {
+        $(this).parents('.bb-udiff').toggleClass('collapsed');
+      });
+      } else {
+        $('.diff-container .heading').unbind('click');
+      }
+    });
+  }
+
+  toggleAllPanels() {
+    // TODO: Review the correct behavior of the toggle button, now the first defines.
+    const collapse = !$('.bb-udiff:first').hasClass('collapsed');
+    if (collapse) {
+      $('.bb-udiff').addClass('collapsed');
+    } else {
+      $('.bb-udiff').removeClass('collapsed');
+    }
   }
 }
+
 
 new ExtensionClient();
