@@ -54,11 +54,11 @@ body {
 
 .logo {
     width: 200px;
-    height: 63px;
+    height: 40px;
     margin: 4px auto;
     background-image: url(/assets/logo_small.png);
     background-repeat: no-repeat;
-    background-size: 200px 63px
+    background-size: 100%;
 }
 
 li a,
