@@ -1,6 +1,6 @@
 {
   "name": "bestbucket",
-  "version": "0.0.1",
+  "version": "0.2.1",
   "description": "Boost your Bitbucket Pull request diff experience.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,7 +16,7 @@
   },
   "homepage": "https://github.com/juanmadurand/bestbucket",
   "dependencies": {
-    "jquery": "^2.1.4",
+    "jquery": "^2.1.4"
   },
   "devDependencies": {
     "autoprefixer-loader": "^1.2.0",

@@ -56,7 +56,7 @@ body {
     width: 200px;
     height: 63px;
     margin: 4px auto;
-    background-image: url(/assets/icon_38x38.png);
+    background-image: url(/assets/logo_small.png);
     background-repeat: no-repeat;
     background-size: 200px 63px
 }
@@ -106,7 +106,7 @@ li a:hover {
 @media (-webkit-min-device-pixel-ratio:2),
 (min-resolution:192dpi) {
     #logo {
-        background-image: url(chrome-extension://cmedhionkhpnakcndndgjdbohmhepckk/images/logo@2x.png)
+        background-image: url(/assets/logo_medium.png);
     }
 }
 
