@@ -96,7 +96,7 @@
 
 
 /* Toggle File Panels */
-.bb-udiff .heading .primary{
+.togglePanelWrapper .bb-udiff .heading .primary{
   cursor:pointer
 }
 .bb-udiff.collapsed .diff-content-container,

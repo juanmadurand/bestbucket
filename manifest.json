@@ -1,7 +1,7 @@
 {
   "name": "BestBucket",
   "description": "Boost your Bitbucket Pull request diff experience!",
-  "version": "0.1.1",
+  "version": "0.2.1",
 
   "icons": {
     "16": "assets/icon_16x16.png",
@@ -29,7 +29,8 @@
     "default_icon": {
       "19": "assets/icon_19x19.png",
       "38": "assets/icon_38x38.png"
-    }
+    },
+    "default_popup": "popup.html"
   },
   "content_scripts": [
     {

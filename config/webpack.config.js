@@ -8,8 +8,8 @@ module.exports = {
     background: './background.js',
     client: './client.js',
     reload: './reload.js',
+    popup: './popup.js',
     common: [
-      'lodash',
       'jquery'
     ]
   },
@@ -45,7 +45,6 @@ module.exports = {
         loader: 'url?limit=10000&name=assets/[name].[ext]'
       }
     ],
-    // noParse: /\/node_modules/
   },
 
   resolve: {
@@ -57,7 +56,6 @@ module.exports = {
 
   plugins: [
     new webpack.ProvidePlugin({
-      _: 'lodash',
       $: 'jquery',
       jQuery: 'jquery'
     }),

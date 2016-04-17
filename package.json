@@ -17,7 +17,6 @@
   "homepage": "https://github.com/juanmadurand/bestbucket",
   "dependencies": {
     "jquery": "^2.1.4",
-    "lodash": "^3.8.0"
   },
   "devDependencies": {
     "autoprefixer-loader": "^1.2.0",
