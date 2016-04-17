@@ -23,4 +23,6 @@ coverage
 build
 
 # Dependency directory
-node_modules
+node_modules/
+dist/
+*.pem

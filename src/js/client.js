@@ -1,5 +1,7 @@
  'use strict';
 
+ const matchUrl = /https:\/\/bitbucket.org\/.*\/pull\-requests/g;
+
 const components = {
   collapsePanels: require('./components/togglePanel'),
   mixedTabSpaces: require('./components/mixedTabSpaces'),
@@ -8,8 +10,11 @@ const components = {
 
 class ExtensionClient {
   constructor() {
-    const renderMenu = this.renderMenu.bind(this);
+    if (!matchUrl.test(window.location.href)) {
+      return;
+    }
 
+    const renderMenu = this.renderMenu.bind(this);
     chrome.storage.sync.get({
       collapsePanels: true,
       mixedTabSpaces: true,

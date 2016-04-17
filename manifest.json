@@ -1,8 +1,8 @@
 {
   "name": "BestBucket",
   "description": "Boost your Bitbucket Pull request diff experience!",
-  "version": "0.2.1",
-
+  "version": "0.2.3",
+  "homepage_url": "https://github.com/juanmadurand/bestbucket",
   "icons": {
     "16": "assets/icon_16x16.png",
     "32": "assets/icon_32x32.png",
