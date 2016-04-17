@@ -56,3 +56,30 @@
   margin: 0;
   display: inline-block;
 }
+
+/* Warning mixed spaces tabs */
+.udiff-line {
+  position: relative;
+}
+.udiff-line:hover .bb_warning{
+  display: none;
+}
+.udiff-line:hover .gutter.warning{
+  background: #f5f5f5;
+}
+
+.bb_warning {
+  position: absolute;
+  left: 8px;
+  top: 1px;
+}
+.bb_warning .aui-icon:before {
+  font-size: 11px;
+  color: #707070;
+}
+
+.refract-container .gutter.warning {
+  background: rgb(255,217,118);
+  left: 0;
+  padding-right: 1px;
+}

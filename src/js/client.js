@@ -4,23 +4,35 @@ class ExtensionClient {
   constructor() {
     this.renderMenu = this.renderMenu.bind(this);
     this.toggleInvisibleCharacters = this.toggleInvisibleCharacters.bind(this);
+    this.findMixedSpacesTabs = this.findMixedSpacesTabs.bind(this);
     this.renderMenu();
+    this.findMixedSpacesTabs();
+
   }
 
   findMixedSpacesTabs() {
-    $('.sources').each((elem) => {
+    if (!$('.source').length) {
+      setTimeout(() => this.findMixedSpacesTabs(), 1000);
+      return;
+    }
+    console.log('working...');
+    $('.source').each(function (elem) {
+      console.log('this', this);
       const text = $(this).text();
       const regex = /\ \t|\t\ /g;
       const match = regex.exec(text);
+      console.log('text', text);
+      console.log('match', match);
 
       if (match) {
         const parent = $(this).parents('.udiff-line');
-
-        const warning = $('<span />')
-        .addClass('bb_warning aui-icon aui-icon-small aui-iconfont-warning')
+        const warning = $('<div />')
+        .addClass('bb_warning')
+        .append('<i class="aui-icon aui-icon-small aui-iconfont-warning" />')
         .attr('title', 'This line has mixed spaces and tabs');
 
         parent.append(warning);
+        parent.find('.gutter').addClass('warning');
       }
     });
   }
