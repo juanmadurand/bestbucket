@@ -6,12 +6,14 @@ class TogglePanel {
   }
 
   init() {
-    if (this.enabled) {
-      $('#compare').addClass('togglePanelWrapper');
-      $('.diff-container .heading .primary').click(function() {
-        $(this).parents('.bb-udiff').toggleClass('collapsed');
-      });
+    if (!$('.source').length) {
+      setTimeout(() => this.init(), 1000);
+      return;
     }
+    $('#compare').addClass('togglePanelWrapper');
+    $('.diff-container .heading .primary').click(function() {
+      $(this).parents('.bb-udiff').toggleClass('collapsed');
+    });
   }
 
   getButton() {
