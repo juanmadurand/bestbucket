@@ -1,6 +1,6 @@
 {
   "name": "bestbucket",
-  "version": "0.2.4",
+  "version": "0.2.6",
   "description": "Boost your Bitbucket Pull request diff experience.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

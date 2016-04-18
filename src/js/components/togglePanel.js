@@ -30,14 +30,14 @@ class TogglePanel {
   }
 
   toggleAllPanels() {
-    // TODO: Review the correct behavior of the toggle button, now the first defines.
-    const collapse = !$('.bb-udiff:first').hasClass('collapsed');
+    const toggleIcon = $(this).find('.aui-icon');
+    const collapse = toggleIcon.hasClass('aui-iconfont-expanded');
     if (collapse) {
       $('.bb-udiff').addClass('collapsed');
     } else {
       $('.bb-udiff').removeClass('collapsed');
     }
-    $(this).find('.aui-icon').toggleClass('aui-iconfont-collapsed aui-iconfont-expanded');
+    toggleIcon.toggleClass('aui-iconfont-collapsed aui-iconfont-expanded');
   }
 }
 

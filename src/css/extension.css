@@ -51,6 +51,7 @@
 
 .bb_source {
   margin: 10px 0 0;
+  white-space: nowrap;
 }
 .bb_source .leading-whitespace {
   display: inline-block;
