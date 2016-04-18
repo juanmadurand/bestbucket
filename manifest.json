@@ -1,7 +1,7 @@
 {
   "name": "BestBucket",
   "description": "Boost your Bitbucket Pull request diff experience!",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "homepage_url": "https://github.com/juanmadurand/bestbucket",
   "icons": {
     "16": "assets/icon_16x16.png",
@@ -34,7 +34,9 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://bitbucket.org/*"],
+      "matches": [
+        "https://bitbucket.org/*"
+      ],
       "css": [
         "css/extension.css"
       ],

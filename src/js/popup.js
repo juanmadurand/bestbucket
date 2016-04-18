@@ -32,7 +32,7 @@ $('#toggle_hiddenChars').click(function(e) {
   });
 });
 
-$('#rate_this_extension').click(function(e) {
+$('#rate_link, #logo').click(function(e) {
   e.preventDefault();
   window.open(`https://chrome.google.com/webstore/detail/${extensionId}`, '_blank');
 });
